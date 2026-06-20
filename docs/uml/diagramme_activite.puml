@@ -1,0 +1,64 @@
+@startuml Diagramme
+skinparam ArchimateBackgroundColor #ffffff
+skinparam ActivityBackgroundColor #ebf8ff
+skinparam ActivityBorderColor #2b6cb0
+skinparam ArrowColor #2d3748
+
+title Diagramme d'Activités Global - Système MédiClinic
+
+|Patient|
+start
+:Se présenter à l'accueil
+ou Demander un RDV;
+
+|Réceptionniste|
+:Rechercher le patient dans le système;
+
+if (Le patient existe ?) then (non)
+  :Créer une nouvelle fiche patient;
+  :Enregistrer les coordonnées et mutuelle;
+else (oui)
+  :Mettre à jour les données si nécessaire;
+endif
+
+:Vérifier le motif de la visite;
+
+if (Type de demande ?) then (Rendez-vous futur)
+  :Consulter le planning des médecins;
+  :Sélectionner un créneau libre;
+  :Valider le rendez-vous;
+  stop
+else (Consultation immédiate)
+  :Inscrire le patient dans la file d'attente;
+endif
+
+|Médecin|
+:Sélectionner le prochain patient;
+:Accéder au Dossier Médical Partagé (DMP);
+:Effectuer l'examen clinique (Saisie des constantes);
+:Saisir le diagnostic et les observations;
+
+if (Besoin de traitement ?) then (oui)
+  :Rédiger l'ordonnance numérique;
+  :Générer le document PDF;
+else (non)
+endif
+
+:Clôturer la consultation;
+
+|Réceptionniste|
+:Générer la facture automatisée;
+:Prendre en charge le règlement;
+
+if (Mode de paiement ?) then (Espèces/Carte)
+  :Encaisser le montant;
+else (Mutuelle / Tiers-Payant)
+  :Télétransmettre la feuille de soins;
+endif
+
+:Émettre la quittance de paiement;
+
+|Patient|
+:Recevoir l'ordonnance et la facture;
+stop
+@enduml

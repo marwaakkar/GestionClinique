@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.clinic.controller.DashboardController" stylesheets="@../styles/main.css, @../styles/components.css">
+    <left>
+        <VBox spacing="10" style="-fx-background-color: #1A365D; -fx-padding: 20;" prefWidth="200">
+            <Button text="Patients" onAction="#showPatients" maxWidth="Infinity"/>
+            <Button text="Rendez-vous" onAction="#showAppointments" maxWidth="Infinity"/>
+            <Button text="Déconnexion" onAction="#handleLogout" styleClass="button-danger" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+    <center>
+        <TableView fx:id="tableNextAppointments" prefHeight="400"/>
+    </center>
+</BorderPane>

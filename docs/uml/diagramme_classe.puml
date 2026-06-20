@@ -1,0 +1,37 @@
+@startuml
+title Diagramme de Classes Complet
+
+class Patient {
+    - idPatient : Long
+    - nom : String
+    - prenom : String
+    - telephone : String
+    - email : String
+}
+
+class Medecin {
+    - idMedecin : Long
+    - nom : String
+    - prenom : String
+    - specialite : String
+    - email : String
+}
+
+class RendezVous {
+    - idRDV : Long
+    - dateHeure : LocalDateTime
+    - statut : String
+    - motif : String
+}
+
+class Consultation {
+    - idConsultation : Long
+    - diagnostic : String
+    - observations : String
+    - tarif : Double
+}
+
+Patient "1" -- "0..*" RendezVous
+Medecin "1" -- "0..*" RendezVous
+RendezVous "0..1" -- "1" Consultation
+@enduml

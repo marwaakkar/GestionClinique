@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="20" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.clinic.controller.LoginController" stylesheets="@../styles/main.css, @../styles/components.css" 
+      style="-fx-background-color: #EBF8FF;" prefWidth="400" prefHeight="500">
+    <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+    <Text text="MédiClinic" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #2B6CB0;"/>
+    <VBox spacing="15" styleClass="card">
+        <TextField fx:id="txtUsername" promptText="Identifiant"/>
+        <PasswordField fx:id="txtPassword" promptText="Mot de passe"/>
+        <ComboBox fx:id="comboRole" promptText="Rôle" maxWidth="Infinity"/>
+        <Button text="Se connecter" onAction="#handleLogin" styleClass="button-primary" maxWidth="Infinity"/>
+    </VBox>
+    <Label fx:id="lblError" style="-fx-text-fill: red;"/>
+</VBox>

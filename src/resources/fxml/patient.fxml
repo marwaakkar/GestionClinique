@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.clinic.controller.PatientController" stylesheets="@../styles/main.css, @../styles/components.css" styleClass="main-container">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <GridPane hgap="10" vgap="10">
+        <TextField fx:id="txtNom" promptText="Nom" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtPrenom" promptText="Prénom" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtTelephone" promptText="Téléphone" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtEmail" promptText="Email" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+    </GridPane>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Modifier" onAction="#handleModifierPatient"/>
+        <Button text="Ajouter" onAction="#handleAjouterPatient" styleClass="button-primary"/>
+    </HBox>
+    <TableView fx:id="tablePatients" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="120"/>
+            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="120"/>
+            <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="120"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="150"/>
+        </columns>
+    </TableView>
+    <Button text="Supprimer" onAction="#handleSupprimerPatient" styleClass="button-danger"/>
+</VBox>
