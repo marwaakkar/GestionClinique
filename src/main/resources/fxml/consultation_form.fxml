@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<VBox spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.mediclinic.controllers.PatientController" stylesheets="@../css/modern_style.css, @../css/components.css" styleClass="main-container">
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
-    <GridPane hgap="10" vgap="10">
-        <TextField fx:id="txtNom" promptText="Nom" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <TextField fx:id="txtPrenom" promptText="Prénom" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-        <TextField fx:id="txtTelephone" promptText="Téléphone" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-        <TextField fx:id="txtEmail" promptText="Email" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-    </GridPane>
-    <HBox spacing="10" alignment="CENTER_RIGHT">
-        <Button text="Modifier" onAction="#handleModifierPatient"/>
-        <Button text="Ajouter" onAction="#handleAjouterPatient" styleClass="button-primary"/>
+<VBox spacing="15" style="-fx-padding: 20;" prefWidth="500" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mediclinic.controllers.ConsultationFormController">
+    <Label fx:id="patientLabel" text="Consultation de: " style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+    <HBox spacing="20">
+        <TextField fx:id="tensionField" promptText="Tension (ex: 12/8)"/>
+        <TextField fx:id="poidsField" promptText="Poids (kg)"/>
     </HBox>
-    <TableView fx:id="tablePatients" VBox.vgrow="ALWAYS">
-        <columns>
-            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
-            <TableColumn fx:id="colNom" text="Nom" prefWidth="120"/>
-            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="120"/>
-            <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="120"/>
-            <TableColumn fx:id="colEmail" text="Email" prefWidth="150"/>
-        </columns>
-    </TableView>
-    <Button text="Supprimer" onAction="#handleSupprimerPatient" styleClass="button-danger"/>
+
+    <Label text="Diagnostic :"/>
+    <TextArea fx:id="diagnosticArea" prefHeight="100"/>
+
+    <Label text="Observations :"/>
+    <TextArea fx:id="observationsArea" prefHeight="100"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Terminer et Générer Ordonnance" onAction="#handleSave" style="-fx-background-color: #38a169; -fx-text-fill: white;"/>
+    </HBox>
 </VBox>

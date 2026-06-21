@@ -1,46 +1,21 @@
-package com.clinic;
+package com.mediclinic;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
 
-        try {
-
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/fxml/patient_search.fxml")
-            );
-
-            Scene scene = new Scene(loader.load());
-
-            scene.getStylesheets().add(
-                    getClass().getResource("/styles/main.css")
-                            .toExternalForm()
-            );
-
-            primaryStage.setTitle("MediClinic - Gestion de Clinique");
-            primaryStage.setScene(scene);
-
-            primaryStage.setWidth(1000);
-            primaryStage.setHeight(700);
-
-            primaryStage.setMinWidth(800);
-            primaryStage.setMinHeight(600);
-
-            primaryStage.centerOnScreen();
-            primaryStage.show();
-
-        } catch (Exception e) {
-
-            System.err.println("Erreur lors du démarrage de l'application");
-            e.printStackTrace();
-
-        }
+        primaryStage.setTitle("MediClinic - Authentification");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {

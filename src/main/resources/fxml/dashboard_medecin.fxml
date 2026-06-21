@@ -2,12 +2,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.mediclinic.controllers.AppointmentController" stylesheets="@../css/modern_style.css, @../css/components.css">
-    <ComboBox fx:id="comboPatient" promptText="Patient"/>
-    <ComboBox fx:id="comboMedecin" promptText="Médecin"/>
-    <DatePicker fx:id="datePickerRdv"/>
-    <ComboBox fx:id="comboHeure" promptText="Heure"/>
-    <TextField fx:id="txtMotif" promptText="Motif"/>
-    <Button text="Valider" onAction="#handleSaveAppointment" styleClass="button-primary"/>
-</VBox>
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mediclinic.controllers.MedecinController">
+    <top>
+        <Label text="Espace Médecin - Liste d'attente" style="-fx-font-size: 24; -fx-padding: 20; -fx-text-fill: #2c5282;"/>
+    </top>
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <TableView fx:id="waitingTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colNom" text="Nom" prefWidth="150" />
+                    <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="150" />
+                    <TableColumn fx:id="colCin" text="CIN" prefWidth="100" />
+                </columns>
+            </TableView>
+            <Button text="Commencer Consultation" onAction="#handleStartConsultation" prefHeight="40" style="-fx-background-color: #2b6cb0; -fx-text-fill: white;"/>
+        </VBox>
+    </center>
+</BorderPane>

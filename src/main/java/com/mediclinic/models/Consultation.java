@@ -1,21 +1,53 @@
-package com.clinic.model;
+package com.mediclinic.models;
+
+import java.time.LocalDateTime;
 
 public class Consultation {
-    private Long id;
+    private int id;
+    private int idPatient; // C'est ce champ qui est utilisé
+    private String nomPatient;
     private String diagnostic;
     private String observations;
-    private Double tarif;
-    private RendezVous rendezVous;
+    private String tension;
+    private double poids;
 
-    public Consultation() {}
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getDiagnostic() { return diagnostic; }
-    public void setDiagnostic(String diagnostic) { this.diagnostic = diagnostic; }
-    public String getObservations() { return observations; }
-    public void setObservations(String observations) { this.observations = observations; }
-    public Double getTarif() { return tarif; }
-    public void setTarif(Double tarif) { this.tarif = tarif; }
-    public RendezVous getRendezVous() { return rendezVous; }
-    public void setRendezVous(RendezVous rendezVous) { this.rendezVous = rendezVous; }
+    public Consultation(int id, int idPatient, String nomPatient, String diagnostic, String observations, String tension, double poids) {
+        this.id = id;
+        this.idPatient = idPatient;
+        this.nomPatient = nomPatient;
+        this.diagnostic = diagnostic;
+        this.observations = observations;
+        this.tension = tension;
+        this.poids = poids;
+    }
+
+    // GETTERS
+
+    public int getId() {
+        return id;
+    }
+
+    public int getIdPatient() {
+        return idPatient;
+    }
+
+    public String getNomPatient() {
+        return nomPatient;
+    }
+
+    public String getDiagnostic() {
+        return diagnostic;
+    }
+
+    public String getObservations() {
+        return observations;
+    }
+
+    public String getTension() {
+        return tension;
+    }
+
+    public double getPoids() {
+        return poids;
+    }
 }

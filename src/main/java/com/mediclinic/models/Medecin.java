@@ -1,4 +1,4 @@
-package com.clinic.model;
+package com.mediclinic.models;
 
 public class Medecin {
     private Long id;

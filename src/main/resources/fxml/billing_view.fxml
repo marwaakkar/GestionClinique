@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" style="-fx-padding: 30;" prefWidth="400" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mediclinic.controllers.BillingController">
+    <Label text="Règlement de la Consultation" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <Label text="Patient : "/>
+        <Label fx:id="patientLabel" style="-fx-font-weight: bold;"/>
+    </HBox>
+
+    <Label text="Montant à payer (DH) :"/>
+    <TextField fx:id="amountField" text="200.00" style="-fx-font-size: 16;"/>
+
+    <Label text="Mode de Paiement :"/>
+    <ComboBox fx:id="modeBox" prefWidth="400"/>
+
+    <Button text="Encaisser et Imprimer Facture" onAction="#handlePayment" prefHeight="50" prefWidth="400" style="-fx-background-color: #38a169; -fx-text-fill: white; -fx-font-weight: bold;"/>
+</VBox>

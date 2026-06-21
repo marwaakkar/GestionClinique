@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15.0" style="-fx-padding: 20; -fx-background-color: white;" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mediclinic.controllers.RdvFormController">
+    <children>
+        <Label text="Planifier un Rendez-vous" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2b6cb0;"/>
+
+        <Label fx:id="patientLabel" text="Patient: ..." style="-fx-font-weight: bold;"/>
+
+        <Separator />
+
+        <Label text="Choisir le Médecin :" />
+        <ComboBox fx:id="medecinBox" prefWidth="360.0" promptText="Sélectionnez un médecin..." />
+
+        <Label text="Date du RDV :" />
+        <DatePicker fx:id="datePicker" prefWidth="360.0" />
+
+        <Label text="Heure du RDV :" />
+        <ComboBox fx:id="heureBox" prefWidth="360.0" promptText="Choisir l'heure" />
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Annuler" onAction="#handleCancel" style="-fx-background-color: #cbd5e0;" />
+            <Button text="Valider le RDV" onAction="#handleSave" style="-fx-background-color: #3182ce; -fx-text-fill: white; -fx-font-weight: bold;" />
+        </HBox>
+    </children>
+</VBox>

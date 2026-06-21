@@ -1,19 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Text?>
 
-<VBox spacing="20" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.mediclinic.controllers.LoginController" stylesheets="@../css/modern_style.css, @../css/components.css"
-      style="-fx-background-color: #EBF8FF;" prefWidth="400" prefHeight="500">
-    <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
-    <Text text="MédiClinic" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #2B6CB0;"/>
-    <VBox spacing="15" styleClass="card">
-        <TextField fx:id="txtUsername" promptText="Identifiant"/>
-        <PasswordField fx:id="txtPassword" promptText="Mot de passe"/>
-        <ComboBox fx:id="comboRole" promptText="Rôle" maxWidth="Infinity"/>
-        <Button text="Se connecter" onAction="#handleLogin" styleClass="button-primary" maxWidth="Infinity"/>
-    </VBox>
-    <Label fx:id="lblError" style="-fx-text-fill: red;"/>
-</VBox>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="650.0" style="-fx-background-color: #f0f4f8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mediclinic.controllers.LoginController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="450.0" prefWidth="250.0" style="-fx-background-color: #2b6cb0;">
+            <children>
+                <Label text="MediClinic" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="32.0" />
+                    </font>
+                </Label>
+                <Label text="Système de Gestion" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+
+        <VBox alignment="CENTER_LEFT" layoutX="300.0" layoutY="50.0" prefHeight="350.0" prefWidth="300.0" spacing="15.0">
+            <children>
+                <Label text="Connexion" textFill="#2d3748">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+
+                <Label text="Nom d'utilisateur" textFill="#4a5568" />
+                <TextField fx:id="usernameField" prefHeight="40.0" promptText="Username" />
+
+                <Label text="Mot de passe" textFill="#4a5568" />
+                <PasswordField fx:id="passwordField" prefHeight="40.0" promptText="********" />
+
+                <Button mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #2b6cb0;" text="Se connecter" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+
+                <Label fx:id="errorLabel" textFill="#e53e3e" wrapText="true" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
