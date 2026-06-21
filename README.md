@@ -1,39 +1,63 @@
-# MédiClinic - Système de Gestion de Clinique Médicale
+MediClinic - Système de Gestion de Clinique Médicale
 
-Application de bureau en **JavaFX** avec architecture en couches (N-Tier) et persistance **JDBC (DAO)**.
+MediClinic est une application de bureau performante développée en JavaFX 17, conçue pour automatiser et simplifier la gestion des flux de travail au sein d'une clinique médicale. Elle permet de gérer tout le cycle de vie d'un patient, de son enregistrement à l'accueil jusqu'à la génération de son ordonnance et de sa facture finale.
 
-## 💾 Configuration SQL
-```sql
-CREATE DATABASE IF NOT EXISTS miniclinic_db;
-USE miniclinic_db;
 
-CREATE TABLE patient (
-    id_patient INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(50) NOT NULL,
-    prenom VARCHAR(50) NOT NULL,
-    telephone VARCHAR(20) NOT NULL,
-    email VARCHAR(100)
-);
+Démonstration Vidéo
+Découvrez une présentation complète de l'application (Interface, fonctionnalités et génération de documents) en cliquant sur le lien ci-dessous :
 
-CREATE TABLE medecin (
-    id_medecin INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(50) NOT NULL,
-    prenom VARCHAR(50) NOT NULL,
-    specialite VARCHAR(100) NOT NULL,
-    email VARCHAR(100)
-);
+>https://drive.google.com/your-link-here
 
-CREATE TABLE rendez_vous (
-    id_rdv INT AUTO_INCREMENT PRIMARY KEY,
-    date_heure DATETIME NOT NULL,
-    statut VARCHAR(20) DEFAULT 'PLANIFIE',
-    motif VARCHAR(255),
-    id_patient INT,
-    id_medecin INT,
-    FOREIGN KEY (id_patient) REFERENCES patient(id_patient) ON DELETE CASCADE,
-    FOREIGN KEY (id_medecin) REFERENCES medecin(id_medecin) ON DELETE CASCADE
-);
+Fonctionnalités Clés
 
-INSERT INTO medecin (nom, prenom, specialite, email) VALUES 
-('Alami', 'Ahmed', 'Généraliste', 'alami@clinic.com'),
-('Benani', 'Sanaa', 'Pédiatre', 'benani@clinic.com');
+-Sécurité et Authentification
+    Accès sécurisé par identifiant et mot de passe.
+    Gestion des rôles (Médecin / Réceptionniste) avec des interfaces distinctes et adaptées.
+
+-Gestion de la Réception (Accueil)
+    Enregistrement des patients : Création et recherche rapide de dossiers patients par nom ou CIN.
+    Planification des Rendez-vous: Gestion du calendrier et affectation d'un médecin spécifique.
+    File d'attente : Suivi en temps réel des patients présents dans l'établissement.
+
+-Espace Médecin (Consultation)
+    Consultation numérique : Saisie du diagnostic, des constantes vitales et des observations.
+    Ordonnance Intelligente : Génération automatique d'une ordonnance professionnelle au format PDF, prête à l'impression, avec liste numérotée des médicaments.
+
+-Facturation et Règlement
+    Calcul automatisé des frais de consultation.
+    Gestion des modes de paiement (Espèces, Carte, Mutuelle).
+    Génération de quittances de paiement en PDF archivées sur le poste de travail.
+
+
+-Technologies Utilisées
+   Langage : Java 17
+   UI Framework : JavaFX (FXML)
+   Base de données : MySQL 8.0
+   Gestionnaire de dépendances : Maven
+   Bibliothèque PDF :iText 7 (Kernel, Layout, IO)
+   Design : CSS personnalisé pour un rendu moderne et épuré.
+
+
+-Installation et Lancement
+
+-Prérequis
+JDK 17 installé.
+WampServer (pour la base de données MySQL).
+
+ Étapes
+1.  Base de données : Importer le fichier `database_schema.sql` situé dans le dossier `/sql`.
+2.  Configuration : Ouvrir le projet dans **IntelliJ IDEA** ou **Eclipse**.
+3.  Maven : Effectuer un `Reload Project` pour télécharger toutes les dépendances.
+4.  Lancement : Exécuter la classe `MainApp.java` ou utiliser la commande :
+    ```bash
+    mvn javafx:run
+    ```
+
+
+-Architecture du Projet
+Le projet est structuré selon les patterns MVC(Modèle-Vue-Contrôleur) et DAO (Data Access Object) :
+   `models/` : Entités de données (Patient, User, Consultation...).
+   `dao/` : Interactions directes avec la base de données SQL.
+   `controllers/` : Logique de contrôle des interfaces.
+   `views (fxml)/` : Design des écrans via Scene Builder.
+   `utils/` : Services transverses (Génération PDF, Navigation).

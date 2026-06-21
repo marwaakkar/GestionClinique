@@ -1,0 +1,32 @@
+.main-container { -fx-background-color: #F8FAFC; }
+.title-label { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1A365D; }
+.root {
+    -fx-font-family: "Segoe UI";
+}
+
+.main-container {
+    -fx-background-color: white;
+}
+
+.title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1976D2;
+}
+
+.text-field {
+    -fx-pref-height: 40;
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-background-color: #1976D2;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 150px;
+}
+
+.button:hover {
+    -fx-background-color: #1565C0;
+}

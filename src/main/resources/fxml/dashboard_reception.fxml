@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mediclinic.controllers.DashboardController">
+
+    <!-- Header -->
+    <top>
+        <HBox spacing="15"
+              style="-fx-background-color:#1976D2; -fx-padding:15;">
+            <Label text="🏥 MediClinic"
+                   style="-fx-text-fill:white; -fx-font-size:22px; -fx-font-weight:bold;"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button text="🔔 Notifications"/>
+            <Button text="👤 Admin"/>
+            <Button text="🚪 Déconnexion"/>
+        </HBox>
+    </top>
+
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="10"
+              prefWidth="220"
+              style="-fx-background-color:#263238; -fx-padding:15;">
+
+            <Button text="🏠 Dashboard" maxWidth="Infinity"/>
+            <Button text="👥 Patients" maxWidth="Infinity"/>
+            <Button text="👨‍⚕️ Médecins" maxWidth="Infinity"/>
+            <Button text="📅 Rendez-vous" maxWidth="Infinity"/>
+            <Button text="🩺 Consultations" maxWidth="Infinity"/>
+            <Button text="💰 Facturation" maxWidth="Infinity"/>
+            <Button text="📊 Rapports" maxWidth="Infinity"/>
+            <Button text="⚙️ Paramètres" maxWidth="Infinity"/>
+
+        </VBox>
+    </left>
+
+    <!-- Content -->
+    <center>
+
+        <VBox spacing="20" style="-fx-padding:20;">
+
+            <!-- KPIs -->
+            <HBox spacing="15">
+
+                <VBox spacing="5"
+                      style="-fx-background-color:#4CAF50; -fx-padding:15; -fx-background-radius:10;">
+                    <Label text="Patients"/>
+                    <Label fx:id="lblPatients"
+                           text="0"
+                           style="-fx-font-size:24px; -fx-font-weight:bold;"/>
+                </VBox>
+
+                <VBox spacing="5"
+                      style="-fx-background-color:#2196F3; -fx-padding:15; -fx-background-radius:10;">
+                    <Label text="Médecins"/>
+                    <Label fx:id="lblMedecins"
+                           text="0"
+                           style="-fx-font-size:24px; -fx-font-weight:bold;"/>
+                </VBox>
+
+                <VBox spacing="5"
+                      style="-fx-background-color:#FF9800; -fx-padding:15; -fx-background-radius:10;">
+                    <Label text="RDV Aujourd'hui"/>
+                    <Label fx:id="lblRdv"
+                           text="0"
+                           style="-fx-font-size:24px; -fx-font-weight:bold;"/>
+                </VBox>
+
+                <VBox spacing="5"
+                      style="-fx-background-color:#E91E63; -fx-padding:15; -fx-background-radius:10;">
+                    <Label text="Consultations"/>
+                    <Label fx:id="lblConsultations"
+                           text="0"
+                           style="-fx-font-size:24px; -fx-font-weight:bold;"/>
+                </VBox>
+
+            </HBox>
+
+            <!-- Rendez-vous -->
+            <Label text="📅 Rendez-vous du Jour"
+                   style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+
+            <TableView fx:id="rdvTable" prefHeight="250">
+
+                <columns>
+
+                    <TableColumn fx:id="heureColumn"
+                                 text="Heure"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="patientColumn"
+                                 text="Patient"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="medecinColumn"
+                                 text="Médecin"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="statutColumn"
+                                 text="Statut"
+                                 prefWidth="150"/>
+
+                </columns>
+
+            </TableView>
+
+            <!-- Actions rapides -->
+            <HBox spacing="10">
+
+                <Button text="+ Nouveau Patient"/>
+
+                <Button text="+ Nouveau RDV"/>
+
+                <Button text="+ Consultation"/>
+
+                <Button text="+ Facture"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
