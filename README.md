@@ -6,7 +6,7 @@ MediClinic est une application de bureau performante développée en JavaFX 17, 
 Démonstration Vidéo
 Découvrez une présentation complète de l'application (Interface, fonctionnalités et génération de documents) en cliquant sur le lien ci-dessous :
 
->https://drive.google.com/your-link-here
+>https://drive.google.com/file/d/1jKF-8YWm6JB04KlR7s7WF2YRjvTJsxyZ/view?usp=drive_link
 
 Fonctionnalités Clés
 
@@ -46,7 +46,7 @@ WampServer (pour la base de données MySQL).
 
  Étapes
 1.  Base de données : Importer le fichier `database_schema.sql` situé dans le dossier `/sql`.
-2.  Configuration : Ouvrir le projet dans **IntelliJ IDEA** ou **Eclipse**.
+2.  Configuration : Ouvrir le projet dans IntelliJ IDEA ou Eclipse.
 3.  Maven : Effectuer un `Reload Project` pour télécharger toutes les dépendances.
 4.  Lancement : Exécuter la classe `MainApp.java` ou utiliser la commande :
     ```bash

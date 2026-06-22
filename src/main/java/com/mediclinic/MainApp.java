@@ -14,7 +14,8 @@ public class MainApp extends Application {
 
         primaryStage.setTitle("MediClinic - Authentification");
         primaryStage.setScene(new Scene(root));
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
+
         primaryStage.show();
     }
 
